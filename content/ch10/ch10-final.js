@@ -1,0 +1,177 @@
+// המבחן המסכם: שאלה או שתיים מכל פרק, בתרחישים חדשים. ה-topic הוא שם
+// הפרק, כך שבלוח המורה רואים מיד איזה פרק כדאי לחזור עליו.
+
+export default {
+  title: 'מבחן מסכם',
+  passMark: 70,
+  questions: [
+    {
+      type: 'mc',
+      topic: 'פרק 1 — קיבוע',
+      prompt: 'בתא <span class="ltr">C2</span>: <span class="ltr">=B2/$B$20</span>. אחרי גרירה ל-C9, מה הנוסחה?',
+      options: [
+        { text: '<span class="ltr">=B9/$B$27</span>', correct: false },
+        { text: '<span class="ltr">=B2/$B$20</span>', correct: false },
+        { text: '<span class="ltr">=B9/$B$20</span>', correct: true },
+        { text: '<span class="ltr">=B9/B27</span>', correct: false },
+      ],
+      explanation: 'B2 זז (B9), ו-$B$20 נעוץ.',
+    },
+    {
+      type: 'mc',
+      topic: 'פרק 1 — פונקציות סיכום',
+      prompt: 'בעמודת "טלפון" יש 50 תאים עם מספר ו-10 עם "אין". מה תחזיר COUNTA על העמודה?',
+      options: [
+        { text: '50', correct: false },
+        { text: '10', correct: false },
+        { text: '0', correct: false },
+        { text: '60', correct: true },
+      ],
+      explanation: 'COUNTA סופרת כל תא שאינו ריק — גם טקסט. COUNT הייתה מחזירה 50.',
+    },
+    {
+      type: 'mc',
+      topic: 'פרק 9 — טקסט',
+      prompt: 'בתא A2: "  רמת גן" (שני רווחים לפני). מה יחזיר <span class="ltr">=TRIM(A2)</span>?',
+      options: [
+        { text: '"רמתגן"', correct: false },
+        { text: '" רמת גן"', correct: false },
+        { text: '7', correct: false },
+        { text: '"רמת גן"', correct: true },
+      ],
+      explanation: 'TRIM מוחקת רווחים בהתחלה ובסוף, ומשאירה רווח אחד בין מילים.',
+    },
+    {
+      type: 'mc',
+      topic: 'פרק 9 — טיוב',
+      prompt: 'בעמודת מחיר מופיע "120 ש"ח". מה יעשה SUM עם התא?',
+      options: [
+        { text: 'ידלג עליו בשקט, כי הוא טקסט', correct: true },
+        { text: 'יחשב אותו כ-120', correct: false },
+        { text: 'יחזיר #VALUE!', correct: false },
+        { text: 'יחשב אותו כ-0 ויתריע', correct: false },
+      ],
+      explanation: 'פונקציות חישוב מדלגות על טקסט בלי הודעה. מתקנים בחיפוש והחלפה.',
+    },
+    {
+      type: 'mc',
+      topic: 'פרק 2 — תהליך הטיוב',
+      prompt: 'סיימת לטייב: מחקת 5 שורות כפולות ושורת סה"כ, ותיקנת 12 תאים. מה צריך להופיע בשורה הראשונה של עמודת ההסבר?',
+      options: [
+        { text: 'רשימה של 12 התאים שתוקנו', correct: false },
+        { text: 'כמה שורות נמחקו ולמה: 5 כפולות ושורת סה"כ, וכמה שורות היו וכמה נשארו', correct: true },
+        { text: 'כלום, כי זו שורה של נתונים', correct: false },
+        { text: 'הממוצע של הטבלה אחרי הטיוב', correct: false },
+      ],
+      explanation: 'כל תיקון של תא מוסבר בשורה שלו. שורות שנמחקו כבר לא קיימות, ולכן הסיכום שלהן נכתב בשורה הראשונה של עמודת ההסבר.',
+    },
+    {
+      type: 'mc',
+      topic: 'פרק 4 — לוגיקה',
+      prompt: '"הנחה לגמלאים ולנוער" (גיל ב-B2: מעל 67 או מתחת ל-18). איזה תנאי?',
+      options: [
+        { text: '<span class="ltr">AND(B2&gt;67,B2&lt;18)</span>', correct: false },
+        { text: '<span class="ltr">OR(B2&gt;67,B2&lt;18)</span>', correct: true },
+        { text: '<span class="ltr">OR(B2&gt;67,&lt;18)</span>', correct: false },
+        { text: '<span class="ltr">18&lt;B2&lt;67</span>', correct: false },
+      ],
+      explanation: 'אין אדם שהוא גם מעל 67 וגם מתחת ל-18. מספיק תנאי אחד — OR, וכל תנאי כתוב במלואו.',
+    },
+    {
+      type: 'mc',
+      topic: 'פרק 5 — IF',
+      prompt: 'רוצים לחשב את <b>סטיית התקן</b> של הציונים בכיתה "יא1" בלבד. מה בעמודת העזר?',
+      options: [
+        { text: '<span class="ltr">=IF(B2="יא1",C2,0)</span>', correct: false },
+        { text: '<span class="ltr">=IF(B2="יא1",C2,"")</span>', correct: true },
+        { text: '<span class="ltr">=IF(B2="יא1",1,0)</span>', correct: false },
+        { text: '<span class="ltr">=IF(C2="יא1",B2,"")</span>', correct: false },
+      ],
+      explanation: 'מעתיקים את הציון (C) רק כשהכיתה (B) מתאימה, ובשאר משאירים ריק — לא 0.',
+    },
+    {
+      type: 'mc',
+      topic: 'פרק 5 — IF מקונן',
+      prompt: 'מחיר כרטיס: עד גיל 12 — 30, עד 64 — 50, מעל — 25. מה נכון?',
+      options: [
+        { text: '<span class="ltr">=IF(B2&lt;=64,50,IF(B2&lt;=12,30,25))</span>', correct: false },
+        { text: '<span class="ltr">=IF(B2&lt;=12,30,IF(B2&lt;=64,50))</span>', correct: false },
+        { text: '<span class="ltr">=IF(B2&lt;=12,30,B2&lt;=64,50,25)</span>', correct: false },
+        { text: '<span class="ltr">=IF(B2&lt;=12,30,IF(B2&lt;=64,50,25))</span>', correct: true },
+      ],
+      explanation: 'עם &lt;= מתחילים מהקטן. כשמתחילים מ-64, ילד בן 8 יקבל 50.',
+    },
+    {
+      type: 'mc',
+      topic: 'פרק 6 — חישובים מותנים',
+      prompt: 'סך המכירות (D) של מוצרי "חשמל" (B) בחודש "מאי" (C):',
+      options: [
+        { text: '<span class="ltr">=SUMIF(B2:B500,"חשמל",D2:D500)</span>', correct: false },
+        { text: '<span class="ltr">=SUMIFS(B2:B500,"חשמל",C2:C500,"מאי",D2:D500)</span>', correct: false },
+        { text: '<span class="ltr">=COUNTIFS(B2:B500,"חשמל",C2:C500,"מאי")</span>', correct: false },
+        { text: '<span class="ltr">=SUMIFS(D2:D500,B2:B500,"חשמל",C2:C500,"מאי")</span>', correct: true },
+      ],
+      explanation: 'שני תנאים = SUMIFS, ובה עמודת הסכום ראשונה. COUNTIFS הייתה סופרת עסקאות במקום לסכם.',
+    },
+    {
+      type: 'mc',
+      topic: 'פרק 6 — כתיבת תנאי',
+      prompt: 'כמה עובדים מרוויחים לפחות 8,000 (שכר ב-E)?',
+      options: [
+        { text: '<span class="ltr">=COUNTIF(E2:E80,&gt;=8000)</span>', correct: false },
+        { text: '<span class="ltr">=COUNTIF(E2:E80,"&gt;=8000")</span>', correct: true },
+        { text: '<span class="ltr">=COUNTIF(E2:E80,"&gt;8000")</span>', correct: false },
+        { text: '<span class="ltr">=SUMIF(E2:E80,"&gt;=8000")</span>', correct: false },
+      ],
+      explanation: '"לפחות" כולל את 8,000 עצמו (&gt;=), התנאי במרכאות, ו"כמה" = COUNTIF.',
+    },
+    {
+      type: 'mc',
+      topic: 'פרק 3 — סטטיסטיקה',
+      prompt: 'איך מחשבים טווח באקסל?',
+      options: [
+        { text: '<span class="ltr">=MAX(B2:B50)-MIN(B2:B50)</span>', correct: true },
+        { text: '<span class="ltr">=RANGE(B2:B50)</span>', correct: false },
+        { text: '<span class="ltr">=MAX(B2:B50)+MIN(B2:B50)</span>', correct: false },
+        { text: '<span class="ltr">=STDEV(B2:B50)</span>', correct: false },
+      ],
+      explanation: 'אין פונקציה RANGE. טווח = מקסימום פחות מינימום.',
+    },
+    {
+      type: 'mc',
+      topic: 'פרק 2 — כלי נתונים',
+      prompt: 'סיננת לפי "תל אביב". איזו נוסחה תחזיר את ממוצע השורות המוצגות בלבד?',
+      options: [
+        { text: '<span class="ltr">=AVERAGE(C2:C300)</span>', correct: false },
+        { text: '<span class="ltr">=SUBTOTAL(109,C2:C300)</span>', correct: false },
+        { text: '<span class="ltr">=SUBTOTAL(101,C2:C300)</span>', correct: true },
+        { text: '<span class="ltr">=AVERAGEIF(C2:C300,"מוצג")</span>', correct: false },
+      ],
+      explanation: '101 (או 1) = ממוצע ב-SUBTOTAL. 109 הוא סכום. AVERAGE מחשבת גם את המוסתרות.',
+    },
+    {
+      type: 'mc',
+      topic: 'פרק 7 — פיבוט',
+      prompt: 'בטבלה 600 הזמנות. רוצים את <b>מספר</b> ההזמנות מכל עיר, לכל הערים בבת אחת. מה הכי מהיר?',
+      options: [
+        { text: 'COUNTIF נפרד לכל עיר', correct: false },
+        { text: 'פיבוט: עיר בשורות, ועמודת מספר ההזמנה בערכים כספירה', correct: true },
+        { text: 'פיבוט: עיר בערכים, ומספר ההזמנה בשורות', correct: false },
+        { text: 'מיון לפי עיר וספירה ביד', correct: false },
+      ],
+      explanation: 'COUNTIF נכון, אבל צריך אחד לכל עיר. פיבוט נותן את כולן יחד. בשורות מה שמקבצים, ובערכים מה שסופרים.',
+    },
+    {
+      type: 'mc',
+      topic: 'פרק 8 — גרפים',
+      prompt: 'איזה גרף יראה איך השתנה מחיר הדלק בכל חודש בשלוש השנים האחרונות?',
+      options: [
+        { text: 'עוגה', correct: false },
+        { text: 'פיזור', correct: false },
+        { text: 'קו', correct: true },
+        { text: 'עמודות מוערמות', correct: false },
+      ],
+      explanation: 'מגמה לאורך זמן = קו.',
+    },
+  ],
+};

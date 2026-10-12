@@ -1,0 +1,131 @@
+// מבחן פרק 1: יסודות.
+
+export default {
+  title: 'מבחן פרק: יסודות',
+  passMark: 70,
+  questions: [
+    {
+      type: 'mc',
+      topic: 'קיבוע ($)',
+      prompt: 'בתא <span class="ltr">D2</span>: <span class="ltr">=C2*$G$1</span>. גוררים ל-D7. מה תהיה הנוסחה ב-D7?',
+      options: [
+        { text: '<span class="ltr">=C7*$G$1</span>', correct: true },
+        { text: '<span class="ltr">=C7*$G$6</span>', correct: false },
+        { text: '<span class="ltr">=C2*$G$1</span>', correct: false },
+        { text: '<span class="ltr">=C7*G6</span>', correct: false },
+      ],
+      explanation: 'C2 בלי $ זז עם הגרירה ל-C7. $G$1 נעוץ ולא זז.',
+    },
+    {
+      type: 'mc',
+      topic: 'קיבוע ($)',
+      prompt: 'מה עושה הסימן $ ב-<span class="ltr">L$2</span>?',
+      options: [
+        { text: 'קובע רק את העמודה', correct: false },
+        { text: 'קובע גם שורה וגם עמודה', correct: false },
+        { text: 'קובע רק את השורה', correct: true },
+        { text: 'הופך את התא למטבע', correct: false },
+      ],
+      explanation: 'הדולר נועץ את מה שבא מיד אחריו. כאן הוא לפני ה-2, כלומר לפני השורה.',
+    },
+    {
+      type: 'mc',
+      topic: 'COUNT מול COUNTA',
+      prompt: 'בעמודה יש 30 תאים: 25 מספרים, 3 תאים עם "חסר" ו-2 ריקים. מה תחזיר COUNT?',
+      options: [
+        { text: '28', correct: false },
+        { text: '30', correct: false },
+        { text: '25', correct: true },
+        { text: '5', correct: false },
+      ],
+      explanation: 'COUNT סופרת רק מספרים. COUNTA הייתה מחזירה 28: מספרים וטקסט, בלי הריקים.',
+    },
+    {
+      type: 'mc',
+      topic: 'פונקציות סיכום',
+      prompt: 'בשאלה כתוב: "מהו הסכום הכולל ששולם?". איזו פונקציה?',
+      options: [
+        { text: 'COUNT', correct: false },
+        { text: 'AVERAGE', correct: false },
+        { text: 'MAX', correct: false },
+        { text: 'SUM', correct: true },
+      ],
+      explanation: '"סכום כולל" = SUM. COUNT סופרת תאים, לא כסף.',
+    },
+    {
+      type: 'mc',
+      topic: 'פונקציות סיכום',
+      prompt: 'בטווח <span class="ltr">C2:C7</span> יש: 40, תא ריק, 25, "לא נמדד", 60, 32. מה תחזיר <span class="ltr">=MIN(C2:C7)</span>?',
+      options: [
+        { text: '0', correct: false },
+        { text: '25', correct: true },
+        { text: '60', correct: false },
+        { text: 'שגיאה', correct: false },
+      ],
+      explanation: 'MIN מתעלמת מתאים ריקים ומטקסט. מבין 40, 25, 60 ו-32, הנמוך ביותר הוא 25.',
+    },
+    {
+      type: 'mc',
+      topic: 'LARGE ו-SMALL',
+      prompt: 'איזו נוסחה מחזירה את הציון השלישי הגבוה ביותר בטווח <span class="ltr">C2:C40</span>?',
+      options: [
+        { text: '<span class="ltr">=SMALL(C2:C40,3)</span>', correct: false },
+        { text: '<span class="ltr">=MAX(C2:C40)-3</span>', correct: false },
+        { text: '<span class="ltr">=LARGE(C2:C40,3)</span>', correct: true },
+        { text: '<span class="ltr">=LARGE(3,C2:C40)</span>', correct: false },
+      ],
+      explanation: 'LARGE סופרת מהגבוה. קודם הטווח ואחריו המקום.',
+    },
+    {
+      type: 'mc',
+      topic: 'עיגול',
+      prompt: 'מה ההבדל בין <span class="ltr">ROUND</span> לבין "הקטן מקומות עשרוניים"?',
+      options: [
+        { text: 'ROUND משנה את הערך בתא, העיצוב משנה רק את התצוגה', correct: true },
+        { text: 'אין הבדל', correct: false },
+        { text: 'העיצוב משנה את הערך, ROUND רק את התצוגה', correct: false },
+        { text: 'ROUND עובדת רק על מספרים שלמים', correct: false },
+      ],
+      explanation: 'אחרי עיצוב, חישובים ממשיכים עם הערך המלא. רק ROUND באמת משנה את המספר.',
+    },
+    {
+      type: 'numeric',
+      topic: 'עיגול',
+      prompt: 'מה תחזיר <span class="ltr">=ROUND(12.456,1)</span>?',
+      answer: 12.5,
+      tolerance: 0.001,
+      explanation: 'ספרה אחת אחרי הנקודה: 12.4|56 — הספרה הבאה היא 5, ולכן מעגלים למעלה ל-12.5.',
+    },
+    {
+      type: 'mc',
+      topic: 'עיגול',
+      prompt: 'לכל שולחן בחדר האוכל יש 8 כיסאות, ויש 90 משתתפות. ב-B1 כתוב <span class="ltr">=90/8</span> (יוצא 11.25). איזו נוסחה נותנת כמה שולחנות צריך?',
+      options: [
+        { text: '<span class="ltr">=ROUND(B1,0)</span>', correct: false },
+        { text: '<span class="ltr">=ROUNDDOWN(B1,0)</span>', correct: false },
+        { text: '<span class="ltr">=ROUNDUP(B1,1)</span>', correct: false },
+        { text: '<span class="ltr">=ROUNDUP(B1,0)</span>', correct: true },
+      ],
+      explanation: 'צריך מספר שלם של שולחנות, ותמיד למעלה: 11 שולחנות משאירים שתי משתתפות בלי מקום. ROUNDUP עם 0 ספרות נותנת 12. עם 1 היא הייתה נותנת 11.3.',
+    },
+    {
+      type: 'mc',
+      topic: 'POWER',
+      prompt: 'איזו נוסחה שווה ל-<span class="ltr">=POWER(A2,3)</span>?',
+      options: [
+        { text: '<span class="ltr">=A2*3</span>', correct: false },
+        { text: '<span class="ltr">=A2^3</span>', correct: true },
+        { text: '<span class="ltr">=3^A2</span>', correct: false },
+        { text: '<span class="ltr">=A2^2*3</span>', correct: false },
+      ],
+      explanation: 'POWER(בסיס, חזקה). A2 בחזקת 3 נכתב גם <span class="ltr">A2^3</span>. ‏<span class="ltr">3^A2</span> הוא 3 בחזקת A2.',
+    },
+    {
+      type: 'numeric',
+      topic: 'ROWS מול COUNTA',
+      prompt: 'בעמודת הטלפונים <span class="ltr">D2:D41</span> מילאו 33 תאים, והשאר ריקים. מה תחזיר <span class="ltr">=ROWS(D2:D41)-COUNTA(D2:D41)</span>?',
+      answer: 7,
+      explanation: 'ROWS סופרת את כל השורות בטווח: משורה 2 עד 41 יש 40 שורות. COUNTA סופרת רק את 33 התאים המלאים. 40 − 33 = 7 תאים חסרים.',
+    },
+  ],
+};
