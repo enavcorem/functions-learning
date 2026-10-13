@@ -8,8 +8,12 @@ import { renderSheet } from './sheet.js';
 import { renderFnCard } from './fn-card.js';
 import { renderSteps } from './steps.js';
 import { renderShot } from './shot.js';
+import { enlargeOperators } from './operators.js';
 
 registerBlockRenderer('sheet', renderSheet);
 registerBlockRenderer('fn-card', renderFnCard);
 registerBlockRenderer('steps', renderSteps);
 registerBlockRenderer('shot', renderShot);
+
+// רק בדפדפן (validate-content טוען את הקובץ הזה גם ב-Node)
+if (typeof document !== 'undefined') enlargeOperators();

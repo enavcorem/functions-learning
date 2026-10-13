@@ -191,3 +191,12 @@
   color: var(--text-muted);
   background: var(--bg);
 }
+
+/* * ו-^ בנוסחאות: גדולים, עבים ובאמצע השורה (operators.js) */
+.fn-op {
+  font-family: Consolas, 'Courier New', monospace;
+  font-size: 1.3em;
+  font-weight: 700;
+  line-height: 1;
+  padding: 0 0.08em;
+}
